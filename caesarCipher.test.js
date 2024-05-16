@@ -1,4 +1,4 @@
-import {caesarCipher, generateCipherAlphabet} from './caesarCipher.js';
+import {caesarCipher} from './caesarCipher.js';
 
 test('Caesar Cipher basic case', () => {
     expect(caesarCipher('abc', 1)).toBe('BCD');
