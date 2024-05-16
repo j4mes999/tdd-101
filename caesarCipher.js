@@ -1,10 +1,9 @@
 const theAlphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
 function caesarCipher(string, shiftFactor){
-    //Generate cipher alphabet(shiftFactor) returns array
-    //Iterate through each letter in string, know the place in the alphabet and go to the cipher.
     const cipherAlphabet = generateCipherAlphabet(shiftFactor);
-    return 'BCD';
+    const cipheredString = generateCipheredString(string, cipherAlphabet);
+    return cipheredString;
 }
 
 function generateCipherAlphabet(shiftFactor){
@@ -18,6 +17,22 @@ function generateCipherAlphabet(shiftFactor){
   });
 
   return cipherArray;
+}
+
+function generateCipheredString(string, cipherAlphabet){
+  let cipheredString = '';
+  const stringToLowerCase = string.toLowerCase();
+  let index = 0;
+  for( let char of stringToLowerCase){
+    if( char.charCodeAt(0) < 97 || char.charCodeAt(0) > 122){
+      cipheredString += char;
+      continue;
+    }
+    cipheredString += cipherAlphabet[char.charCodeAt(0) - 97];
+  }
+
+  return cipheredString;
+
 }
 
 export {caesarCipher, generateCipherAlphabet};
